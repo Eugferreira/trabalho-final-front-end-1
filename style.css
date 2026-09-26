@@ -1,0 +1,293 @@
+/* ============================================================
+   Trabalho Final - Front-End I
+   Autor: Eugênio Ferreira Nogueira
+   Arquivo: style.css  (CSS EXTERNO - aparência da página)
+
+   Versão 2 - "Editorial Logística": tipografia grande e ousada,
+   fundo claro, texto quase preto e um único acento em laranja
+   (referência ao laranja de sinalização/EPI usado em logística).
+   Continua usando só os recursos de CSS3 já estudados no curso:
+   seletores (universal, elemento, classe, id, agrupado), box
+   model, flexbox e media query. Nada de CSS Grid ou frameworks.
+   ============================================================ */
+
+/* ---------- SELETOR UNIVERSAL (*) ----------
+   Atinge TODOS os elementos. Zera margens/preenchimentos padrão
+   do navegador e faz o padding entrar na conta do tamanho da caixa. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ---------- SELETOR DE ELEMENTO (tag) ----------
+   Estilo geral do corpo da página.
+   font-family lista uma ordem de preferência: primeiro tenta a fonte
+   importada do Google Fonts (Archivo); se não carregar, cai para uma
+   fonte padrão do sistema (sans-serif). */
+body {
+    font-family: 'Archivo', Arial, Helvetica, sans-serif;
+    color: #141414;             /* texto quase preto (não é preto puro, fica mais suave) */
+    background-color: #f7f6f2;  /* fundo claro, levemente acinzentado (não é branco puro) */
+    line-height: 1.6;
+}
+
+/* Imagens sempre responsivas: nunca passam da largura do espaço onde estão */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ---------- SELETOR AGRUPADO (vírgula) ----------
+   Aplica o MESMO estilo a vários elementos de uma vez. Aqui, todos os
+   títulos usam a fonte Archivo em peso bem forte (900 = "black"),
+   e as letras ficam mais "coladas" (letter-spacing negativo), efeito
+   comum em capas de revista/editorial. */
+h1, h2, h3 {
+    font-family: 'Archivo', Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    color: #141414;
+    margin-bottom: 10px;
+}
+
+/* ---------- SELETOR DE CLASSE (.) ----------
+   .etiqueta e .rotulo são as duas classes novas desta versão:
+   textos pequenos, maiúsculos, em fonte monoespaçada (IBM Plex Mono)
+   e na cor de destaque — servem como "rótulo" acima de um título,
+   estilo catálogo/painel técnico. */
+.etiqueta,
+.rotulo {
+    font-family: 'IBM Plex Mono', 'Courier New', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #ff5a1f; /* laranja de destaque (única cor de acento do site) */
+    margin-bottom: 8px;
+}
+
+/* Cabeçalho principal: fundo escuro para contrastar com o resto do
+   site (claro) e destacar o nome em letras enormes. */
+.cabecalho {
+    background-color: #141414; /* quase preto */
+    color: #ffffff;
+    text-align: left;
+    padding: 60px 24px 50px;
+}
+
+/* Dentro de .cabecalho, o h1 precisa ficar branco
+   (o seletor agrupado h1,h2,h3 acima deixou tudo preto) */
+.cabecalho h1 {
+    color: #ffffff;
+    /* clamp(mínimo, ideal, máximo): o tamanho da fonte cresce com a
+       tela, mas nunca fica menor que 32px nem maior que 64px —
+       é o que dá o efeito "título gigante estilo revista". */
+    font-size: clamp(32px, 7vw, 64px);
+    line-height: 1.05;
+}
+
+/* Dentro do cabeçalho escuro, a etiqueta some no fundo preto se
+   usar a mesma cor; aqui garantimos contraste correto */
+.cabecalho .etiqueta {
+    color: #ff8a4c;
+}
+
+/* Menu de navegação: agora claro, com borda inferior fina e texto
+   monoespaçado maiúsculo (mesmo estilo dos rótulos) */
+.menu {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e3e0d8;
+}
+
+/* A lista do menu usa flex para os itens ficarem lado a lado */
+.menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.menu a {
+    display: block;
+    font-family: 'IBM Plex Mono', 'Courier New', monospace;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #141414;
+    text-decoration: none;
+    padding: 16px 18px;
+    border-bottom: 2px solid transparent; /* reserva o espaço da borda que aparece no hover */
+}
+
+/* PSEUDOCLASSE :hover - em vez de mudar o fundo, agora só troca a
+   cor do texto para o laranja e "acende" a borda inferior */
+.menu a:hover {
+    color: #ff5a1f;
+    border-bottom: 2px solid #ff5a1f;
+}
+
+/* Cada seção de conteúdo: cantos retos (sem border-radius), borda
+   fina e bastante respiro interno — visual mais "editorial/impresso" */
+.secao {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 36px 30px;
+    background-color: #ffffff;
+    border: 1px solid #e3e0d8;
+}
+
+.secao h2 {
+    font-size: clamp(24px, 4vw, 34px);
+    margin-bottom: 18px;
+}
+
+/* Figura com a foto de perfil */
+.figura-perfil {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.figura-perfil img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;   /* a única forma redonda do site, de propósito: destaca o rosto */
+    margin: 0 auto 8px;
+    border: 4px solid #141414;
+}
+
+.figura-perfil figcaption {
+    font-family: 'IBM Plex Mono', 'Courier New', monospace;
+    font-size: 13px;
+    color: #6f6f6f;
+}
+
+/* Tabela */
+.tabela {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+}
+
+/* Seletor agrupado para as células da tabela */
+.tabela th, .tabela td {
+    border: 1px solid #e3e0d8;
+    padding: 12px 10px;
+    text-align: left;
+    font-size: 15px;
+}
+
+/* Cabeçalho da tabela agora em preto + mono maiúsculo, como uma
+   ficha técnica/planilha de operação */
+.tabela th {
+    background-color: #141414;
+    color: #ffffff;
+    font-family: 'IBM Plex Mono', 'Courier New', monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+/* Listas dentro das seções ganham um respiro à esquerda */
+.secao ul, .secao ol {
+    margin: 10px 0 10px 25px;
+}
+
+/* Grade de projetos (dois cards lado a lado, com flexbox) */
+.grade-projetos {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Cards de projeto: cantos retos + uma borda superior grossa laranja,
+   como se fosse uma "etiqueta de identificação" no topo do card */
+.card {
+    flex: 1 1 300px;
+    border: 1px solid #e3e0d8;
+    border-top: 4px solid #ff5a1f;
+    background-color: #ffffff;
+}
+
+.card h3 {
+    padding: 16px 16px 0;
+    font-size: 19px;
+}
+
+.card p {
+    padding: 8px 16px 18px;
+    color: #4a4a4a;
+}
+
+/* Barra lateral (aside): fundo branco, borda esquerda grossa laranja
+   (troquei o verde-claro por um contraste mais forte e minimalista) */
+.lateral {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 24px 30px;
+    background-color: #ffffff;
+    border: 1px solid #e3e0d8;   /* borda fina nos quatro lados */
+    border-left: 5px solid #ff5a1f; /* e depois "sobrescrevemos" só a esquerda, mais grossa e laranja */
+}
+
+.lateral h3 {
+    font-size: 17px;
+}
+
+.lateral a {
+    color: #141414;
+    text-decoration: underline;
+    text-decoration-color: #ff5a1f; /* sublinhado laranja, mesmo com o texto preto */
+}
+
+/* ---------- SELETOR DE ID (#) ----------
+   Começa com # e serve para UM elemento único.
+   #topo é o cabeçalho; aqui garantimos uma rolagem suave até ele. */
+#topo {
+    scroll-margin-top: 10px;
+}
+
+/* Rodapé: mesmo fundo escuro do cabeçalho, fechando a "moldura"
+   do site em preto/laranja */
+.rodape {
+    background-color: #141414;
+    color: #ffffff;
+    text-align: center;
+    padding: 28px 20px;
+    margin-top: 40px;
+    font-family: 'IBM Plex Mono', 'Courier New', monospace;
+    font-size: 13px;
+}
+
+.rodape a {
+    color: #ff8a4c;
+}
+
+/* ============================================================
+   RESPONSIVIDADE - MEDIA QUERIES
+   Quando a tela for menor que 600px (celular), ajustamos o layout.
+   ============================================================ */
+@media (max-width: 600px) {
+
+    /* Cabeçalho com menos espaço e título um pouco menor no celular
+       (o clamp() já reduz o tamanho, isso só ajusta o padding) */
+    .cabecalho {
+        padding: 40px 18px 34px;
+    }
+
+    /* Os cards de projeto passam a ficar um embaixo do outro */
+    .grade-projetos {
+        flex-direction: column;
+    }
+
+    /* Seções com menos espaçamento interno em telas pequenas */
+    .secao {
+        margin: 20px 15px;
+        padding: 24px 20px;
+    }
+
+    .lateral {
+        margin: 20px 15px;
+        padding: 20px;
+    }
+}

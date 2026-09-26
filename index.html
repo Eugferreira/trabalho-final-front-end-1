@@ -1,0 +1,228 @@
+<!-- ============================================================
+     Trabalho Final - Front-End I
+     Autor: Eugênio Ferreira Nogueira
+     Tema: Portfólio pessoal
+     Arquivo: index.html  (estrutura/conteúdo da página)
+     ============================================================ -->
+
+<!-- 1) Declaração do tipo de documento: diz ao navegador que é HTML5 -->
+<!DOCTYPE html>
+
+<!-- 2) Tag raiz <html>, com o idioma da página (pt-br) -->
+<html lang="pt-br">
+
+<!-- 3) <head>: metadados (não aparecem no corpo da página) -->
+<head>
+    <!-- Codificação de caracteres (acentos, ç etc.) -->
+    <meta charset="UTF-8">
+    <!-- Faz a página se adaptar à largura da tela (essencial p/ responsividade) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título que aparece na aba do navegador -->
+    <title>Eugênio Ferreira | Portfólio</title>
+    <!-- Fontes externas (Google Fonts): funcionam do mesmo jeito que o CSS externo,
+         é só um <link> apontando para um arquivo de fonte hospedado fora do site.
+         Archivo = fonte dos títulos (bem forte/editorial). IBM Plex Mono = fonte
+         monoespaçada usada nos rótulos e no menu (efeito "painel técnico"). -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Link para o CSS EXTERNO (arquivo style.css) -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- 4) <body>: todo o conteúdo VISÍVEL da página -->
+<body>
+
+    <!-- ===== CABEÇALHO (tag semântica header) ===== -->
+    <header id="topo" class="cabecalho">
+        <!-- "etiqueta" é só um parágrafo estilizado como rótulo pequeno,
+             maiúsculo e monoespaçado — dá o clima "editorial/painel" -->
+        <p class="etiqueta">Coordenador de Logística &bull; Estudante de ADS</p>
+        <h1>Eugênio Ferreira Nogueira</h1>
+    </header>
+
+    <!-- ===== MENU DE NAVEGAÇÃO (tag semântica nav) ===== -->
+    <!-- Os links abaixo são do tipo ÂNCORA: levam a seções desta mesma página (#id) -->
+    <nav class="menu">
+        <ul>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#formacao">Formação</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <!-- LINK INTERNO: aponta para outro arquivo do mesmo site -->
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+    </nav>
+
+    <!-- ===== CONTEÚDO PRINCIPAL (tag semântica main) ===== -->
+    <main>
+
+        <!-- ----- SEÇÃO 1: Sobre (tag semântica section) ----- -->
+        <section id="sobre" class="secao">
+            <!-- "rotulo" = numeração estilo editorial (revista/catálogo), decorativa -->
+            <p class="rotulo">01 &mdash; Sobre</p>
+            <h2>Sobre mim</h2>
+
+            <!-- figure + figcaption: imagem com legenda -->
+            <figure class="figura-perfil">
+                <img src="imagens/perfil.jpg" alt="Foto de perfil de Eugênio Ferreira">
+                <figcaption>Eugênio Ferreira Nogueira, 2026</figcaption>
+            </figure>
+
+            <!-- Parágrafos com tags de texto: strong (negrito), em (ênfase), br (quebra) -->
+            <p>
+                Olá! Sou <strong>Eugênio Ferreira Nogueira</strong>, coordenador de
+                logística na JPA Agro, atuando com transporte rodoviário de
+                <em>commodities agrícolas</em>.<br>
+                Atualmente curso <strong>Análise e Desenvolvimento de Sistemas</strong>
+                na Unilavras, unindo a experiência em logística à tecnologia.
+            </p>
+            <p>
+                Tenho interesse em análise de dados, automação de planilhas e
+                desenvolvimento web. Este site é o meu trabalho final da disciplina
+                de <em>Front-End I</em>.
+            </p>
+        </section>
+
+        <!-- ----- SEÇÃO 2: Formação, com uma TABELA ----- -->
+        <section id="formacao" class="secao">
+            <p class="rotulo">02 &mdash; Formação</p>
+            <h2>Formação acadêmica</h2>
+            <p>Meu progresso no curso de ADS (Análise e Desenvolvimento de Sistemas), com as
+                disciplinas cursadas em cada período.</p>
+
+            <!-- Tabela: cabeçalho (th) + 3 colunas + mais de 3 linhas de dados -->
+            <table class="tabela">
+                <tr>
+                    <th>Período</th>
+                    <th>Disciplina</th>
+                    <th>Situação</th>
+                </tr>
+                <tr>
+                    <td>1º período</td>
+                    <td>Desenvolvimento de Software em Low Code</td>
+                    <td>Concluído</td>
+                </tr>
+                <tr>
+                    <td>1º período</td>
+                    <td>Infraestrutura On-Premises e Cloud</td>
+                    <td>Concluído</td>
+                </tr>
+                <tr>
+                    <td>1º período</td>
+                    <td>Inteligência Artificial (AI)</td>
+                    <td>Concluído</td>
+                </tr>
+                <tr>
+                    <td>1º período</td>
+                    <td>Internet of Things (IoT)</td>
+                    <td>Concluído</td>
+                </tr>
+                <tr>
+                    <td>1º período</td>
+                    <td>Responsabilidade Social e Ética nos Negócios</td>
+                    <td>Concluído</td>
+                </tr>
+                <tr>
+                    <td>1º período</td>
+                    <td>Segurança da Informação</td>
+                    <td>Concluído</td>
+                </tr>
+                <tr>
+                    <td>2º período</td>
+                    <td>Algoritmos e Programação</td>
+                    <td>Em curso</td>
+                </tr>
+                <tr>
+                    <td>2º período</td>
+                    <td>Análise e Projeto de Software</td>
+                    <td>Em curso</td>
+                </tr>
+                <tr>
+                    <td>2º período</td>
+                    <td>Desenvolvimento Front-End I</td>
+                    <td>Em curso</td>
+                </tr>
+                <tr>
+                    <td>2º período</td>
+                    <td>Desenvolvimento Front-End II</td>
+                    <td>Em curso</td>
+                </tr>
+                <tr>
+                    <td>2º período</td>
+                    <td>Estruturas de Dados</td>
+                    <td>Em curso</td>
+                </tr>
+                <tr>
+                    <td>2º período</td>
+                    <td>User Experience</td>
+                    <td>Em curso</td>
+                </tr>
+            </table>
+
+            <!-- Lista NÃO ORDENADA (ul): a ordem não importa -->
+            <h3>Habilidades</h3>
+            <ul>
+                <li>HTML5 e CSS3</li>
+                <li>Excel / planilhas avançadas</li>
+                <li>Git e GitHub</li>
+                <li>Análise de dados logísticos</li>
+            </ul>
+
+            <!-- Lista ORDENADA (ol): a ordem importa (passo a passo) -->
+            <h3>Meus próximos objetivos</h3>
+            <ol>
+                <li>Concluir o curso de ADS</li>
+                <li>Aprofundar em JavaScript</li>
+                <li>Automatizar processos da logística</li>
+            </ol>
+        </section>
+
+        <!-- ----- SEÇÃO 3: Projetos, com articles ----- -->
+        <section id="projetos" class="secao">
+            <p class="rotulo">03 &mdash; Projetos</p>
+            <h2>Projetos</h2>
+
+            <div class="grade-projetos">
+                <!-- article: conteúdo independente (cada projeto se sustenta sozinho) -->
+                <article class="card">
+                    <img src="imagens/projeto1.jpg" alt="Miniatura do projeto de planilha de logística">
+                    <h3>Planilha de Logística</h3>
+                    <p>Automação de controle de fretes e cruzamento de dados de carregamentos.</p>
+                </article>
+
+                <article class="card">
+                    <img src="imagens/projeto2.jpg" alt="Miniatura do projeto desta página web">
+                    <h3>Página Web (este site)</h3>
+                    <p>Portfólio desenvolvido em HTML5 e CSS3 como trabalho final de Front-End I.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ----- CONTEÚDO RELACIONADO (tag semântica aside) ----- -->
+        <aside class="lateral">
+            <h3>Links úteis</h3>
+            <!-- LINK EXTERNO: leva para outro site (abre em nova aba) -->
+            <p>
+                <a href="https://github.com" target="_blank" rel="noopener">Meu GitHub</a>
+                <!-- TODO: troque pelo endereço real do seu GitHub -->
+            </p>
+            <p>
+                <a href="https://www.linkedin.com/in/eugenio-ferreira-nogueira"
+                   target="_blank" rel="noopener">Meu LinkedIn</a>
+            </p>
+            <p>
+                <a href="mailto:eugferreira@gmail.com">eugferreira@gmail.com</a>
+            </p>
+        </aside>
+
+    </main>
+
+    <!-- ===== RODAPÉ (tag semântica footer) ===== -->
+    <footer class="rodape">
+        <p>&copy; 2026 Eugênio Ferreira Nogueira</p>
+        <!-- Link âncora para voltar ao topo da página -->
+        <p><a href="#topo">Voltar ao topo</a></p>
+    </footer>
+
+</body>
+</html>
